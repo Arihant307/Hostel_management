@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Book a Hostel Room</h1>
+        <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+    </header>
+    
+    <section class="booking-container">
+        <h2>Select Your Room</h2>
+        <form id="booking-form">
+            <label for="room-type">Room Type:</label>
+            <select id="room-type" name="room-type">
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="shared">Shared</option>
+            </select>
+            
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student-dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🏠 HostelHub</div>
+        <ul class="nav-links">
+            <li><a href="../admin/index1.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="student-book-room.html">Book Room</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="student-login.html" id="logoutLink">Logout</a></li>
+        </ul>
+    </nav>
+    <header class="dashboard-header">
+        <h1>Welcome, <span id="student-name">Student</span>!</h1>
+        <p>Your student dashboard at a glance.</p>
+    </header>
+    <main class="dashboard-grid">
+        <div class="card">
+            <h2>Profile</h2>
+            <p>View and update your details.</p>
+            <a href="profile.html" class="card-link">Go to Profile</a>
+        </div>
+        <div class="card">
+            <h2>Book a Room</h2>
+            <p>Reserve your preferred room easily.</p>
+            <a href="student-book-room.html" class="card-link">Book Now</a>
+        </div>
+        <div class="card">
+            <h2>Attendance</h2>
+            <p>Check your attendance records.</p>
+            <a href="attendance.html" class="card-link">View Attendance</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 HostelHub. All rights reserved.</p>
+    </footer>
+    <script src="../config.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        const name = localStorage.getItem("userName") || "Student";
+        document.getElementById("student-name").textContent = name;
+
+        document.getElementById("logoutLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            logout("student-login.html");
+        });
+
+        // Confirm the session with the server and show the current name.
+        const me = await requireRole(null, "student-login.html");
+        if (me) {
+            document.getElementById("student-name").textContent = me.name;
+            localStorage.setItem("userName", me.name);
+        }
+    });
+    </script>
+</body>
+</html> 

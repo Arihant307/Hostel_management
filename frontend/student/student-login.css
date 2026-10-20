@@ -1,0 +1,100 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #d0e6f7, #f0f9ff);
+    color: #2c3e50;
+    min-height: 100vh;
+    margin: 0;
+}
+header {
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.login-container {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+input, button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+button {
+    background: linear-gradient(to right, #1abc9c, #16a085);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: linear-gradient(to right, #16a085, #1abc9c);
+}
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+}
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+}
+.home-btn {
+    background: #3498db;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+    margin-left: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.home-btn:hover {
+    background: #217dbb;
+}
+.register-btn {
+    background: #1abc9c;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+    margin-left: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.register-btn:hover {
+    background: #159c88;
+} 

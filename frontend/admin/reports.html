@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports</title>
+    <link rel="stylesheet" href="reports.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>  <!-- Import Chart.js -->
+</head>
+<body>
+    <header>
+        <h1>Admin Reports & Analytics</h1>
+        <a href="admin-dashboard.html">Back to Admin Panel</a>
+    </header>
+
+    <section class="reports-container">
+        <h2>Student Room Allocations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Room Number</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody id="student-report">
+                <!-- Student reports will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </section>
+
+    <section class="charts-container">
+        <h2>Room Occupancy Trends</h2>
+        <canvas id="roomOccupancyChart"></canvas>  <!-- Graph -->
+    </section>
+
+    <script src="../config.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>

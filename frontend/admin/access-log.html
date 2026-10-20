@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Log</title>
+    <link rel="stylesheet" href="access-log.css">
+</head>
+<body>
+    <header>
+        <h1>User Access Log</h1>
+        <a href="admin-dashboard.html">Back to Admin Panel</a>
+    </header>
+
+    <section class="log-container">
+        <h2>Recent Login Activity</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>IP Address</th>
+                    <th>Login Time</th>
+                </tr>
+            </thead>
+            <tbody id="log-list">
+                
+            </tbody>
+        </table>
+    </section>
+
+    <script src="access-log.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Log - Hostel Management System</title>
+    <link rel="stylesheet" href="access-log.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>User Access Log</h1>
+            <a href="admin-dashboard.html" class="back-button">&#8592; Back to Admin Panel</a>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="admin-dashboard.html">Home</a></li>
+            <li><a href="admin-dashboard.html" class="active">Admin Panel</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="log-section">
+            <h2>Recent Login Activity</h2>
+            <div class="table-container">
+                <table class="log-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>IP Address</th>
+                            <th>Login Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-list">
+                        <!-- Logs will be dynamically loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Hostel Management System</p>
+    </footer>
+
+    <script src="access-log.js"></script>
+</body>
+</html>

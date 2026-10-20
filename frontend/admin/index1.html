@@ -1,0 +1,88 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostelHub | Hostel Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🏠 HostelSys</div>
+        <ul class="nav-links">
+            <!-- <li><a href="../dashboard.html">Dashboard</a></li> -->
+            <li><a href="admin-login.html">Admin Dashboard</a></li>
+            <li><a href="../student/profile.html">Profile</a></li>
+            <li><a href="../student/student-book-room.html">Book Room</a></li>
+            <li><a href="../student/attendance.html">Attendance</a></li>
+            <li><a href="../student/student-login.html">Student Login</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="logo">🏠 HostelHub</div>
+        <div class="auth-buttons">
+            <!-- Removed Login and Register buttons -->
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to HostelHub</h1>
+        <p>Effortless hostel room booking and management system for students.</p>
+        <a href="../student/student-login.html" class="btn-cta">Student Login</a>
+    </section>
+
+    <section class="features">
+        <h2>Why Choose Us?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>🏠 Easy Room Booking</h3>
+                <p>Book a room in just a few clicks with our hassle-free system.</p>
+            </div>
+            <div class="feature">
+                <h3>🔐 Secure Login</h3>
+                <p>Your data is safe with our high-security authentication system.</p>
+            </div>
+            <div class="feature">
+                <h3>📋 Profile Management</h3>
+                <p>Update your details, check room status, and manage bookings easily.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Students Say</h2>
+        <div class="testimonial">
+            <p>"The best hostel management system I've used. So easy and convenient!"</p>
+            <h4>- Rahul, University Student</h4>
+        </div>
+        <div class="testimonial">
+            <p>"Finding and booking a room has never been this simple. Great job!"</p>
+            <h4>- Priya, Engineering Student</h4>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HostelHub | Designed for Students</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function requireStudentLogin(selector) {
+            document.querySelectorAll(selector).forEach(function(link) {
+                link.addEventListener("click", function (e) {
+                    if (!localStorage.getItem("studentLoggedIn")) {
+                        e.preventDefault();
+                        alert("You must be logged in as a student to access this page.");
+                        window.location.href = "../student/student-login.html";
+                    }
+                });
+            });
+        }
+        requireStudentLogin('a[href="../student/profile.html"], a[href="../student/student-book-room.html"], a[href="../student/attendance.html"]');
+    });
+    </script>
+</body>
+</html>

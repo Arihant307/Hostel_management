@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="./student-registration.css">
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+            <h1 style="margin: 0;">Student Registration</h1>
+            <a href="../admin/index1.html" class="home-btn">Home</a>
+            <a href="student-login.html" class="login-btn">Login</a>
+        </div>
+    </header>
+
+    <section class="registration-container">
+        <form id="register-form">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <label for="room">Room Preference:</label>
+            <select id="room" name="room">
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="shared">Shared</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="student-login.html">Login here</a></p>
+    </section>
+
+    <script src="../config.js"></script>
+    <script src="./student-registration.js"></script>
+</body>
+</html>

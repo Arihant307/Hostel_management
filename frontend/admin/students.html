@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students - HostelHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="students.css">
+</head>
+<body>
+    <header>
+        <h1>HostelHub</h1>
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="manage-rooms.html">Manage Rooms</a>
+            <a href="students.html">Students</a>
+            <a href="reports.html">Reports</a>
+            <a href="logout.html" id="logoutLink">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Student Details</h2>
+        <div class="student-actions">
+            <input type="text" id="searchInput" placeholder="Search by name, email, or room...">
+            <button id="addStudentBtn">Add New Student</button>
+        </div>
+        <table class="student-table" id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Room</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student rows will be populated here by JS -->
+            </tbody>
+        </table>
+        <!-- Modal for Add/Edit Student -->
+        <div id="studentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h3 id="modalTitle">Add/Edit Student</h3>
+                <form id="studentForm">
+                    <input type="hidden" id="studentId">
+                    <label>Name: <input type="text" id="studentName" required></label>
+                    <label>Email: <input type="email" id="studentEmail" required></label>
+                    <label>Phone: <input type="text" id="studentPhone" required></label>
+                    <label>Room: <input type="text" id="studentRoom" required></label>
+                    <div class="modal-actions">
+                        <button type="submit" id="saveStudentBtn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 HostelHub. All rights reserved.</p>
+    </footer>
+    <script src="../config.js"></script>
+    <script src="students.js"></script>
+</body>
+</html>

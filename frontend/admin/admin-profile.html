@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="admin-profile.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Profile</h1>
+        <a href="admin-dashboard.html">Back to Admin Panel</a>
+    </header>
+
+    <section class="profile-container">
+        <h2>Edit Profile</h2>
+        <form id="admin-profile-form">
+            <label for="admin-name">Name:</label>
+            <input type="text" id="admin-name" required>
+
+            <label for="admin-email">Email:</label>
+            <input type="email" id="admin-email" required disabled>
+
+            <button type="submit">Update Profile</button>
+        </form>
+    </section>
+
+    <script src="admin-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #d0e6f7, #f0f9ff);
+    color: #2c3e50;
+    min-height: 100vh;
+    margin: 0;
+}
+header {
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+header a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+.profile-container {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.profile-container h2 {
+    color: #2980b9;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile-container p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+.profile-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+}
+.profile-container label {
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #34495e;
+}
+.profile-container input[type="text"],
+.profile-container input[type="email"] {
+    padding: 10px 12px;
+    border: 1.5px solid #b2bec3;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f8fafc;
+    transition: border 0.2s;
+    margin-bottom: 8px;
+}
+.profile-container input[type="text"]:focus,
+.profile-container input[type="email"]:focus {
+    border: 1.5px solid #2980b9;
+    outline: none;
+    background: #eaf6fb;
+}
+.profile-container button[type="submit"] {
+    background: linear-gradient(90deg, #2980b9 60%, #1abc9c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(41, 128, 185, 0.08);
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+.profile-container button[type="submit"]:hover {
+    background: linear-gradient(90deg, #1abc9c 60%, #2980b9 100%);
+    transform: translateY(-2px) scale(1.03);
+} 

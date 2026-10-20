@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hostel Management System</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="admin-dashboard.html" class="logo">Hostel Management System</a>
+            <nav>
+                <ul>
+                    <li><a href="admin-dashboard.html">Dashboard</a></li>
+                    <li><a href="manage-rooms.html">Manage Rooms</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="payment.html">Payments</a></li>
+                    <li><a href="access-log.html">Access Log</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Overview Card -->
+            <div class="card">
+                <h2>Overview</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3 id="stat-students">–</h3>
+                        <p>Total Students</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="stat-available-rooms">–</h3>
+                        <p>Available Rooms</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="stat-revenue">–</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="stat-occupancy">–</h3>
+                        <p>Occupancy Rate</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="card">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="manage-rooms.html" class="action-btn">Manage Rooms</a>
+                    <a href="students.html" class="action-btn">View Students</a>
+                    <a href="payment.html" class="action-btn">Process Payment</a>
+                    <a href="reports.html" class="action-btn">Generate Report</a>
+                </div>
+            </div>
+
+            <!-- Recent Bookings Card -->
+            <div class="card">
+                <h2>Recent Bookings</h2>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span>Room 101 - John Doe</span>
+                        <span class="status active">Confirmed</span>
+                    </li>
+                    <li class="activity-item">
+                        <span>Room 203 - Jane Smith</span>
+                        <span class="status pending">Pending</span>
+                    </li>
+                    <li class="activity-item">
+                        <span>Room 305 - Mike Johnson</span>
+                        <span class="status active">Confirmed</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Payments Card -->
+            <div class="card">
+                <h2>Recent Payments</h2>
+                <ul class="activity-list" id="recent-payments">
+                    <li class="activity-item">
+                        <span>John Doe - Room 101</span>
+                        <span>₹15,000</span>
+                    </li>
+                    <li class="activity-item">
+                        <span>Jane Smith - Room 203</span>
+                        <span>₹15,000</span>
+                    </li>
+                    <li class="activity-item">
+                        <span>Mike Johnson - Room 305</span>
+                        <span>₹15,000</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script>
+        // Check with the server that an admin is logged in, then load real stats.
+        document.addEventListener('DOMContentLoaded', async function() {
+            const me = await requireRole('admin', 'admin-login.html');
+            if (!me) return;
+
+            try {
+                const res = await apiFetch('/api/dashboard/stats');
+                if (res.ok) {
+                    const s = await res.json();
+                    document.getElementById('stat-students').textContent = s.total_students;
+                    document.getElementById('stat-available-rooms').textContent = s.available_rooms;
+                    document.getElementById('stat-revenue').textContent =
+                        '₹' + Number(s.total_revenue).toLocaleString('en-IN');
+                    document.getElementById('stat-occupancy').textContent = s.occupancy_rate + '%';
+                }
+            } catch (err) {
+                console.error('Failed to load dashboard stats', err);
+            }
+
+            try {
+                const res = await apiFetch('/get_payments');
+                if (res.ok) {
+                    const payments = (await res.json()).slice(0, 3);
+                    const list = document.getElementById('recent-payments');
+                    list.innerHTML = payments.length ? '' :
+                        '<li class="activity-item"><span>No payments recorded yet</span></li>';
+                    payments.forEach(p => {
+                        const li = document.createElement('li');
+                        li.className = 'activity-item';
+                        li.innerHTML = `<span>${escapeHtml(p.student_name)} (ID ${escapeHtml(p.student_id)})</span>` +
+                                       `<span>₹${escapeHtml(Number(p.amount).toLocaleString('en-IN'))}</span>`;
+                        list.appendChild(li);
+                    });
+                }
+            } catch (err) {
+                console.error('Failed to load recent payments', err);
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            logout('admin-login.html');
+        });
+    </script>
+</body>
+</html>

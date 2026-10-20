@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <link rel="stylesheet" href="room-details.css">
+</head>
+<body>
+    <header>
+        <h1>Available Rooms</h1>
+        <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+    </header>
+
+    <section class="room-container">
+        <h2>Room Types</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Room Type</th>
+                    <th>Capacity</th>
+                    <th>Price (per month)</th>
+                </tr>
+            </thead>
+            <tbody id="room-list">
+                <!-- Room details will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="room-details.js"></script>
+</body>
+</html>

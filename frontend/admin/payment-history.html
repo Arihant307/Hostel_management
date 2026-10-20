@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History</title>
+    <link rel="stylesheet" href="payment-history.css">
+</head>
+<body>
+    <header>
+        <h1>Payment History</h1>
+        <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+    </header>
+
+    <section class="history-container">
+        <h2>Transaction Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Amount</th>
+                    <th>Method</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="payment-list">
+                <!-- Payments will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="../config.js"></script>
+    <script src="payment-history.js"></script>
+</body>
+</html>
